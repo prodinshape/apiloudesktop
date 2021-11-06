@@ -6,24 +6,25 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React from "react";
 
-import Router from './routes/Router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {QueryClient, QueryClientProvider} from 'react-query';
+import Router from "./routes/Router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const storeData = async value => {
+  const storeData = async (value) => {
     try {
-      const jsonValue = JSON.stringify({plop: true});
-      await AsyncStorage.setItem('@storage_Key', jsonValue);
+      const jsonValue = JSON.stringify({ plop: true });
+      await AsyncStorage.setItem("@storage_Key", jsonValue);
     } catch (e) {
       // saving error
     }
   };
   storeData();
+  console.log("test");
 
   return (
     <QueryClientProvider client={queryClient}>
