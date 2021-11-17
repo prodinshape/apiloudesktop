@@ -9,23 +9,17 @@
 import React from "react";
 
 import Router from "./routes/Router";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: null,
+    },
+  },
+});
 
 const App = () => {
-  const storeData = async (value) => {
-    try {
-      const jsonValue = JSON.stringify({ plop: true });
-      await AsyncStorage.setItem("@storage_Key", jsonValue);
-    } catch (e) {
-      // saving error
-    }
-  };
-  storeData();
-  console.log("test");
-
   return (
     <QueryClientProvider client={queryClient}>
       <Router />

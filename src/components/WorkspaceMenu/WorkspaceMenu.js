@@ -6,23 +6,31 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {Text, View} from 'react-native';
-import WorkspaceMenuTitle from 'components/WorkspaceMenuTitle';
-import WorkspaceSubMenu from 'components/WorkspaceSubMenu';
-import WorkspaceCollectionList from 'components/WorkspaceCollectionList';
+import React from "react";
+import { Text, View } from "react-native";
+import WorkspaceMenuTitle from "components/WorkspaceMenuTitle";
+import WorkspaceSubMenu from "components/WorkspaceSubMenu";
+import WorkspaceCollectionList from "components/WorkspaceCollectionList";
 
 const WorkspaceMenu = () => {
   return (
     <View
       style={{
-        height: '100%',
+        height: "100%",
         width: 300,
-        backgroundColor: 'grey',
-      }}>
+        borderWidth: 1,
+        borderColor: "black",
+      }}
+    >
       <WorkspaceMenuTitle />
-      <View style={{width: '100%', height: '100%', flexDirection: 'row'}}>
-        <WorkspaceSubMenu />
+      <View
+        style={{
+          width: "100%",
+          height: "100%",
+          padding: 10,
+          flexDirection: "row",
+        }}
+      >
         <WorkspaceCollectionList />
       </View>
     </View>

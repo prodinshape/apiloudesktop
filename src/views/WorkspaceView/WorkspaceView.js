@@ -6,29 +6,25 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {Text, View} from 'react-native';
-import Header from 'components/Header';
-import WorkspaceMenu from 'components/WorkspaceMenu';
-import RouteRequestView from './RouteRequestView';
-import {NativeRouter, Route, Switch} from 'react-router-native';
-import NoRequestView from './RouteRequestView/NoRequestView';
-import RequestView from './RouteRequestView/RequestView';
+import React from "react";
+import { View } from "react-native";
+import WorkspaceMenu from "components/WorkspaceMenu";
+import RouteRequestView from "./RouteRequestView";
 
-const WorkspaceView = ({match}) => {
-  console.log('WorkspaceView', match);
-  console.log('raaaaah');
+const WorkspaceView = ({ match }) => {
   return (
-    <View style={{flex: 1, width: '100%'}}>
-      <View style={{flex: 1, width: '100%', flexDirection: 'row'}}>
+    <View style={{ flex: 1, width: "100%" }}>
+      <View style={{ flex: 1, width: "100%", flexDirection: "row" }}>
         <WorkspaceMenu />
         <View
           style={{
-            width: '100%',
+            width: "100%",
             flex: 1,
-            backgroundColor: 'brown',
-            height: '100%',
-          }}>
+            height: "100%",
+            borderWidth: 1,
+            borderColor: "black",
+          }}
+        >
           <RouteRequestView />
         </View>
       </View>

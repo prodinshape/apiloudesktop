@@ -164,3 +164,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+.env.development
+
+test.json

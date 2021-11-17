@@ -6,35 +6,73 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
-import useRequest from 'hooks/request/useRequest';
+import React from "react";
+import { View, Text, ScrollView, TextInput } from "react-native";
+import useRequest from "hooks/request/useRequest";
+import JSONTree from "react-native-json-tree";
+import { NativeRouter, Route, Link } from "react-router-native";
+import RouteResponseView from "./RouteResponseView";
 
-const ResponseView = ({requestId}) => {
-  const {data} = useRequest({
+const ResponseView = ({ requestId }) => {
+  const { data, error } = useRequest({
     requestId,
   });
 
-  console.log(requestId);
+  const returnResponse = data || error;
 
   return (
-    <ScrollView
+    <View
       style={{
-        height: '100%',
-        backgroundColor: '#654321',
-        width: '100%',
-      }}>
+        height: "100%",
+        width: "100%",
+        borderWidth: 1,
+        borderStyle: "solid",
+        borderColor: "black",
+        paddingTop: 5,
+      }}
+    >
       <View
         style={{
-          height: '100%',
-          backgroundColor: '#654321',
-          width: '100%',
-          padding: 20,
-        }}>
+          padding: 5,
+          flexDirection: "row",
+          height: 30,
+          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Text>Response : </Text>
-        <Text>{data}</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text>Status : </Text>
+          <Text>{returnResponse ? error?.message || 200 : ""}</Text>
+        </View>
       </View>
-    </ScrollView>
+      <View
+        style={{
+          padding: 5,
+          flexDirection: "row",
+          height: 30,
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        <Link to="">
+          <Text>Text</Text>
+        </Link>
+        <Link to="/json">
+          <Text>JSON</Text>
+        </Link>
+      </View>
+      <View style={{ height: 300 }}>
+        {returnResponse && (
+          <ScrollView style={{ height: "100%", padding: 5 }}>
+            <View style={{ height: "100%", margin: 5 }}>
+              <RouteResponseView returnResponse={returnResponse} />
+            </View>
+          </ScrollView>
+        )}
+      </View>
+    </View>
   );
 };
 

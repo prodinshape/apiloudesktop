@@ -6,21 +6,21 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {Text, View} from 'react-native';
-import {Link} from 'react-router-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { Link } from "react-router-native";
 
 const Header = () => {
   return (
     <View
       style={{
         height: 50,
-        width: '100%',
-        backgroundColor: 'blue',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      }}>
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
       <Link to="/workspace">
         <Text>Home</Text>
       </Link>

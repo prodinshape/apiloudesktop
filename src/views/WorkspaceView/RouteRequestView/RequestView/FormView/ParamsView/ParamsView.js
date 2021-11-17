@@ -6,11 +6,14 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from "react";
+import { View, Text } from "react-native";
 
-const ParamsView = ({match}) => {
-  console.log('paramsview', match);
+const ParamsView = ({ match, routeRequest }) => {
+  if (routeRequest !== "params") {
+    return null;
+  }
+
   return (
     <View>
       <Text>params</Text>

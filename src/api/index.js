@@ -17,6 +17,6 @@ const client = axios;
 
 export default client;
 
-// export default axios.create({
-//   baseURL: 'https://beprojectback.herokuapp.com/api/',
-// });
+export default axios.create({
+  baseURL: process.env.API_URL,
+});

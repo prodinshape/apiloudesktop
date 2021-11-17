@@ -6,18 +6,18 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {Text, View} from 'react-native';
-import {Link} from 'react-router-native';
+import React from "react";
+import { Text, View } from "react-native";
+import { Link } from "react-router-native";
 
 const WorkspaceCollectionList = () => {
   return (
     <View
       style={{
-        height: '100%',
-        width: '100%',
-        backgroundColor: 'green',
-      }}>
+        height: "100%",
+        width: "100%",
+      }}
+    >
       <Text>+</Text>
       <Text>Nouvelle collection</Text>
       <Link to="/workspace/request/plop">

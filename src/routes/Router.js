@@ -1,17 +1,14 @@
-import React from 'react';
-import {StyleSheet, Text, View, AppRegistry} from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, AppRegistry } from "react-native";
 
-import {NativeRouter, Route, Switch} from 'react-router-native';
-import WorkspaceView from 'views/WorkspaceView';
-import Header from 'components/Header';
+import { NativeRouter, Route, Switch } from "react-router-native";
+import WorkspaceView from "views/WorkspaceView";
+import Header from "components/Header";
 
-const Router = props => {
-  console.log('Router', props);
-
+const Router = (props) => {
   return (
     <NativeRouter>
-      <Header />
-      <Route path="/workspace" component={WorkspaceView} />
+      <Route path="/" component={WorkspaceView} />
     </NativeRouter>
   );
 };
