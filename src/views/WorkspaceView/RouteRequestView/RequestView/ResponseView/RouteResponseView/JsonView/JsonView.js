@@ -2,7 +2,11 @@ import React from "react";
 import { Text } from "react-native";
 import JSONTree from "react-native-json-tree";
 
-const JsonView = ({ returnResponse }) => {
+const JsonView = ({ returnResponse, routeResponse }) => {
+  if (routeResponse !== "json") {
+    return null;
+  }
+
   return (
     <JSONTree
       data={returnResponse}

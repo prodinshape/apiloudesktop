@@ -11,13 +11,7 @@ import React from "react";
 import Router from "./routes/Router";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      queryFn: null,
-    },
-  },
-});
+const queryClient = new QueryClient();
 
 const App = () => {
   return (

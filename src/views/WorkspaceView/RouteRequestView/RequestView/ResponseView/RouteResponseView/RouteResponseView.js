@@ -1,16 +1,15 @@
 import React from "react";
-import { TextInput } from "react-native";
-import { JSONTree } from "react-native-json-tree";
-import { Route } from "react-router-native";
+import { TextInput, View } from "react-native";
+
 import JsonView from "./JsonView";
 import TextView from "./TextView";
 
-const RouteResponseView = ({ returnResponse }) => {
+const RouteResponseView = ({ returnResponse, routeResponse }) => {
   return (
-    <>
-      <TextView returnResponse={returnResponse} />
-      <JsonView returnResponse={returnResponse} />
-    </>
+    <View style={{ height: "100%", margin: 5 }}>
+      <TextView returnResponse={returnResponse} routeResponse={routeResponse} />
+      <JsonView returnResponse={returnResponse} routeResponse={routeResponse} />
+    </View>
   );
 };
 

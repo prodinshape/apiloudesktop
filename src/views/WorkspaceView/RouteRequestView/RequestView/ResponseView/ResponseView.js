@@ -6,17 +6,20 @@
  * @flow strict-local
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, ScrollView, TextInput } from "react-native";
 import useRequest from "hooks/request/useRequest";
 import JSONTree from "react-native-json-tree";
 import { NativeRouter, Route, Link } from "react-router-native";
 import RouteResponseView from "./RouteResponseView";
+import MenuResponseView from "./MenuResponseView";
 
 const ResponseView = ({ requestId }) => {
   const { data, error } = useRequest({
     requestId,
   });
+
+  const [routeResponse, setRouteResponse] = useState("text");
 
   const returnResponse = data || error;
 
@@ -47,28 +50,14 @@ const ResponseView = ({ requestId }) => {
           <Text>{returnResponse ? error?.message || 200 : ""}</Text>
         </View>
       </View>
-      <View
-        style={{
-          padding: 5,
-          flexDirection: "row",
-          height: 30,
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <Link to="">
-          <Text>Text</Text>
-        </Link>
-        <Link to="/json">
-          <Text>JSON</Text>
-        </Link>
-      </View>
+      <MenuResponseView setRouteResponse={setRouteResponse} />
       <View style={{ height: 300 }}>
         {returnResponse && (
           <ScrollView style={{ height: "100%", padding: 5 }}>
-            <View style={{ height: "100%", margin: 5 }}>
-              <RouteResponseView returnResponse={returnResponse} />
-            </View>
+            <RouteResponseView
+              returnResponse={returnResponse}
+              routeResponse={routeResponse}
+            />
           </ScrollView>
         )}
       </View>

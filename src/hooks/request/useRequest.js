@@ -8,7 +8,7 @@ import axios from "axios";
  * @return {*}
  */
 
-const useRequest = ({ requestId, url, method, body }) => {
+const useRequest = ({ requestId, url, method, body, params, headers }) => {
   const queryClient = useQueryClient();
 
   queryClient.invalidateQueries(requestId);
@@ -16,8 +16,10 @@ const useRequest = ({ requestId, url, method, body }) => {
     requestId || "default",
     () =>
       axios({
+        headers,
+        params,
         method,
-        body,
+        data: body,
         url: url || "127.0.0.1",
       }).then((res) => res),
     {

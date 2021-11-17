@@ -29,12 +29,7 @@ const FormView = ({ requestId }) => {
         method: "get",
         headers: [],
         params: [],
-        body: [
-          {
-            key: "",
-            value: "",
-          },
-        ],
+        body: [],
       }}
       onSubmit={(values) => {
         const formatBody = values.body.reduce(
@@ -44,7 +39,6 @@ const FormView = ({ requestId }) => {
 
         const formatData = { ...values, requestId, body: formatBody };
 
-        console.log(formatData);
         setStop(true);
         setDataForm(formatData);
       }}

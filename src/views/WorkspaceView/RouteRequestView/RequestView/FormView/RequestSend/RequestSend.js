@@ -80,9 +80,11 @@ const RequestSend = ({
           />
         </View>
       </View>
-      <TouchableOpacity onPress={handleSubmit}>
-        {!isLoading && <Text>Send</Text>}
-        {isLoading && <ActivityIndicator animating={isLoading} />}
+      <TouchableOpacity onPress={handleSubmit} style={{ cursor: "pointer" }}>
+        <View>
+          {!isLoading && <Text>Send</Text>}
+          {isLoading && <ActivityIndicator animating={isLoading} />}
+        </View>
       </TouchableOpacity>
     </View>
   );

@@ -13,6 +13,17 @@ const BodyView = ({
     return null;
   }
 
+  const arrayInput = [
+    {
+      placeholder: "Key",
+      value: "key",
+    },
+    {
+      placeholder: "Value",
+      value: "value",
+    },
+  ];
+
   return (
     <View>
       <View
@@ -47,40 +58,28 @@ const BodyView = ({
                     borderColor: "black",
                   }}
                 >
-                  <View
-                    style={{
-                      minWidth: 200,
-                      width: "50%",
-                      borderWidth: 1,
-                      borderColor: "black",
-                      height: "100%",
-                    }}
-                  >
-                    <TextInput
-                      name={`body.${index}.key`}
-                      onChangeText={handleChange(`body.${index}.key`)}
-                      onBlur={handleBlur(`body.${index}.key`)}
-                      placeholder="Key"
-                      value={bodyItem.key}
-                    />
-                  </View>
-                  <View
-                    style={{
-                      minWidth: 200,
-                      width: "50%",
-                      borderWidth: 1,
-                      borderColor: "black",
-                      height: "100%",
-                    }}
-                  >
-                    <TextInput
-                      name={`body.${index}.value`}
-                      onChangeText={handleChange(`body.${index}.value`)}
-                      onBlur={handleBlur(`body.${index}.value`)}
-                      value={bodyItem.value}
-                      placeholder="Value"
-                    />
-                  </View>
+                  {arrayInput.map((input, index1) => (
+                    <View
+                      key={index1}
+                      style={{
+                        minWidth: 200,
+                        width: "50%",
+                        borderWidth: 1,
+                        borderColor: "black",
+                        height: "100%",
+                      }}
+                    >
+                      <TextInput
+                        name={`body.${index}.${input.value}`}
+                        onChangeText={handleChange(
+                          `body.${index}.${input.value}`
+                        )}
+                        onBlur={handleBlur(`body.${index}.${input.value}`)}
+                        value={bodyItem[input.value]}
+                        placeholder={input.placeholder}
+                      />
+                    </View>
+                  ))}
 
                   <TouchableOpacity onPress={() => remove(index)}>
                     <View>
